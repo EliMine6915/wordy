@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordy</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="s-lobby" class="screen active">
+      <div class="card">
+        <h1>Wordy ✏️</h1>
+        <div class="lobby-grid">
+          <div>
+            <span class="col-label">Spieler</span>
+            <div id="plist"></div>
+            <button class="add-btn" onclick="addPlayer()">
+              + Spieler hinzufügen
+            </button>
+          </div>
+          <div>
+            <div class="setting-row">
+              <span class="col-label">Groß-/Kleinschreibung</span>
+              <div class="tg" id="tg-case">
+                <button class="tg-btn active" onclick="tog('case', 0, this)">
+                  An
+                </button>
+                <button class="tg-btn" onclick="tog('case', 1, this)">
+                  Aus
+                </button>
+              </div>
+            </div>
+            <div class="setting-row">
+              <span class="col-label">Runden</span>
+              <div class="tg" id="tg-rounds">
+                <button class="tg-btn" onclick="tog('rounds', 0, this)">
+                  1
+                </button>
+                <button class="tg-btn active" onclick="tog('rounds', 1, this)">
+                  3
+                </button>
+                <button class="tg-btn" onclick="tog('rounds', 2, this)">
+                  5
+                </button>
+                <button class="tg-btn" onclick="tog('rounds', 3, this)">
+                  10
+                </button>
+              </div>
+            </div>
+            <div class="setting-row">
+              <span class="col-label">Runden</span>
+              <div class="tg" id="tg-rounds">
+                <button class="tg-btn" onclick="tog('rounds', 0, this)">
+                  1
+                </button>
+                <button class="tg-btn active" onclick="tog('rounds', 1, this)">
+                  3
+                </button>
+                <button class="tg-btn" onclick="tog('rounds', 2, this)">
+                  5
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bc">
+          <button class="btn btn-p" onclick="startGame()">🚀 Los</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="s-game" class="screen">
+      <div class="card">
+        <div class="gh">
+          <button class="menu-btn" onclick="goLobby()">☰</button>
+          <span class="ri" id="ri"></span>
+          <div class="timer" id="timer">60</div>
+        </div>
+        <div class="cp">Dran: <span id="cpn">–</span></div>
+        <div class="bl" id="bl">D</div>
+        <div class="wd" id="wd">
+          <span style="color: var(--border)">–</span>
+        </div>
+        <div class="ir">
+          <input
+            type="text"
+            class="wi"
+            id="wi"
+            placeholder="Wort eingeben…"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            onkeydown="if (event.key === 'Enter') submitWord();"
+          />
+          <button class="sb" onclick="submitWord()">⏎</button>
+        </div>
+        <div class="em" id="em"></div>
+      </div>
+    </div>
+
+    <div id="s-round" class="screen">
+      <div class="card">
+        <div class="st" id="rt">Runde 1 beendet</div>
+        <div class="sl" id="rs"></div>
+        <div class="bc">
+          <button class="btn btn-p" id="rnb" onclick="nextRound()">
+            Weiter →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="s-final" class="screen">
+      <div class="card">
+        <h1>Ergebnis 🏆</h1>
+        <div class="podium" id="podium"></div>
+        <div class="fb">
+          <button class="btn" onclick="goLobby()">Lobby</button>
+          <button class="btn btn-p" onclick="playAgain()">
+            Noch eine Runde
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
