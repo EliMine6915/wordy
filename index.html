@@ -35,19 +35,16 @@
               </div>
             </div>
             <div class="setting-row">
-              <span class="col-label">Runden</span>
-              <div class="tg" id="tg-rounds">
-                <button class="tg-btn" onclick="tog('rounds', 0, this)">
-                  1
+              <span class="col-label">Zeitlimit</span>
+              <div class="tg" id="tg-time">
+                <button class="tg-btn" onclick="tog('time', 0, this)">
+                  30 Sek
                 </button>
-                <button class="tg-btn active" onclick="tog('rounds', 1, this)">
-                  3
+                <button class="tg-btn active" onclick="tog('time', 1, this)">
+                  1 Min
                 </button>
-                <button class="tg-btn" onclick="tog('rounds', 2, this)">
-                  5
-                </button>
-                <button class="tg-btn" onclick="tog('rounds', 3, this)">
-                  10
+                <button class="tg-btn" onclick="tog('time', 2, this)">
+                  2 Min
                 </button>
               </div>
             </div>
@@ -62,6 +59,9 @@
                 </button>
                 <button class="tg-btn" onclick="tog('rounds', 2, this)">
                   5
+                </button>
+                <button class="tg-btn" onclick="tog('rounds', 3, this)">
+                  10
                 </button>
               </div>
             </div>
